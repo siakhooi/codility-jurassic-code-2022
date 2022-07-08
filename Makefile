@@ -8,6 +8,6 @@ test:
 	mvn test
 
 run1:
-	java -cp target/classes nsh.codility.ClassName
+	java -cp target/classes nsh.codility.JurassicCode2022A
 test1:
-	mvn test -Dtest=nsh.codility.ClassName*
+	mvn test -Dtest=nsh.codility.JurassicCode2022A*

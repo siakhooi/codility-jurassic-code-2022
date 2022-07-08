@@ -1,10 +1,10 @@
-# Codility Challenge: <ChallengeName>
+# Codility Challenge: Jurassic Code 2022
 
 ## <Task Name>
 
 - Difficulty: <Difficulty>
 - <Description>
-- <challenge-url>
+- <https://app.codility.com/programmers/challenges/jurassic_code2022/>
 - <task-url>
 
 ## Versions
@@ -14,7 +14,7 @@
   - `OK`: Correctness 100%, Performance <100%.
   - `Fail`: Correctness <100%, Performance <100%.
 - File naming convention
-  - Code `A`: `ChallengeNameA.java`
+  - Code `A`: `JurassicCode2022A.java`
   - etc
 
 ### Gold Award

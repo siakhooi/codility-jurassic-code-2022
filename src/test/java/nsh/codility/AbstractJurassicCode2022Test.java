@@ -11,10 +11,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public abstract class AbstractChallenge2021Test {
-	abstract Challenge2021Interface getTestObject();
+public abstract class AbstractJurassicCode2022Test {
+	abstract JurassicCode2022Interface getTestObject();
 
-	Challenge2021Interface testObject;
+	JurassicCode2022Interface testObject;
 
 	@BeforeEach
 	void setup() {
