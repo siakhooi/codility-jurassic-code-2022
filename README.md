@@ -1,9 +1,9 @@
 # Codility Challenge: Jurassic Code 2022
 
-## <Task Name>
+## LargestBalancedRadius
 
-- Difficulty: <Difficulty>
-- <Description>
+- Difficulty: Medium
+- Given a set of points on a plane, find the largest number of points that can be enclosed within a circle centered on the origin, such that the number of red points and green points inside it is equal.
 - <https://app.codility.com/programmers/challenges/jurassic_code2022/>
 - <task-url>
 
@@ -19,6 +19,6 @@
 
 ### Gold Award
 
-| File | Complexity | Result | Report |
-| ---- | ---------- | ------ | ------ |
-| `A`  | `O( )`     | ` `    | [ ]()  |
+| File | Complexity    | Result | Report                                                                            |
+| ---- | ------------- | ------ | --------------------------------------------------------------------------------- |
+| `A`  | `O(N*log(N))` | `Good` | [M8YFXK](https://app.codility.com/cert/view/certM8YFXK-H8NSVP6PM32BDZEZ/details/) |

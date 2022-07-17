@@ -1,12 +1,8 @@
 package nsh.codility;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
-import java.time.Duration;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -23,72 +19,72 @@ public abstract class AbstractJurassicCode2022Test {
 
 	@ParameterizedTest
 	@MethodSource
-	void test_samples(int E, int[] A, int X, int Y) {
-		assertEquals(E, testObject.solution(A, X, Y));
-	}
-
-	@ParameterizedTest
-	@MethodSource(value = "test_samples")
-	void test_samples_reverse(int E, int[] A, int X, int Y) {
-		A = TestUtils.reverseArray(A);
-		assertEquals(E, testObject.solution(A, X, Y));
+	void test_samples(int E, int[] X, int[] Y, String colors) {
+		assertEquals(E, testObject.solution(X, Y, colors));
 	}
 
 	static Stream<Arguments> test_samples() {
 		return Stream.of( //
-				Arguments.of(1, new int[] {4, 1, 4, 3, 3}, 1, 2), //
-				Arguments.of(1, new int[] {0, 10, 0}, 3, 4), //
-				Arguments.of(1, new int[] {0, 1, 0, 1, 1, 1, 0}, 5, 6));
+				Arguments.of(2, new int[] {4, 0, 2, -2}, new int[] {4, 1, 2, -3}, "RGRR"), //
+				Arguments.of(4, new int[] {1, 1, -1, -1}, new int[] {1, -1, 1, -1}, "RGRG"), //
+				Arguments.of(0, new int[] {1, 0, 0}, new int[] {0, 1, -1}, "GGR"), //
+				Arguments.of(2, new int[] {5, -5, 5}, new int[] {1, -1, -3}, "GRG"), //
+				Arguments.of(2, new int[] {3000, -3000, 4100, -4100, -3000},
+						new int[] {5000, -5000, 4100, -4100, 5000}, "RRGRG"));
 	}
 
-	@Test
-	@DisplayName("Sample 1")
-	void test01() {
-		int[] A = new int[] {2, 3, 3, 4};
-		int L = 3;
-		int R = 1;
-		int E = 3;
 
-		assertEquals(E, testObject.solution(A, L, R));
+	@ParameterizedTest
+	@MethodSource
+	void test_corner(int E, int[] X, int[] Y, String colors) {
+		assertEquals(E, testObject.solution(X, Y, colors));
 	}
 
-	@Test
-	@DisplayName("Sample 2")
-	void test02() {
-		int[] A = new int[] {2, 3, 3, 4};
-		int L = 3;
-		int R = 1;
-		int E = 3;
-
-		assertEquals(E, testObject.solution(A, L, R));
+	static Stream<Arguments> test_corner() {
+		return Stream.of( //
+				Arguments.of(4, new int[] {0, 1, 0, -1}, new int[] {1, 0, -1, 0}, "RGRG"),
+				Arguments.of(0, new int[] {0, 1, 0, -1}, new int[] {1, 0, -1, 0}, "GGGG"),
+				Arguments.of(0, new int[] {0, 1, 0, -1}, new int[] {1, 0, -1, 0}, "RRRR"),
+				Arguments.of(0, new int[] {0, 1, 0, -1}, new int[] {1, 0, -1, 0}, "GGGR"),
+				Arguments.of(0, new int[] {0, 0, 0, 0, 0}, new int[] {1, 2, 3, 4, 5}, "RRRRR"),
+				Arguments.of(0, new int[] {-20000}, new int[] {20000}, "G"));
 	}
 
-	@Test
-	@DisplayName("Sample 2")
-	void test03() {
-		int[] A = new int[] {2, 3, 3, 4};
-		int L = 3;
-		int R = 1;
-		int E = 3;
-
-		assertEquals(E, testObject.solution(A, L, R));
+	@ParameterizedTest
+	@MethodSource
+	void test_balance(int E, int[] X, int[] Y, String colors) {
+		assertEquals(E, testObject.solution(X, Y, colors));
 	}
 
-	private Duration getTimeoutDuration() {
-		return Duration.ofMillis(2000);
+	static Stream<Arguments> test_balance() {
+		return Stream.of( //
+				Arguments.of(4, new int[] {4, 0, 2, -2}, new int[] {4, 1, 2, -3}, "RGRG"), //
+				Arguments.of(4, new int[] {4, 0, 2, -2}, new int[] {4, 1, 2, -3}, "GRGR") //
+		);
 	}
 
-	@Test
-	void test_long_1() {
-		int L = 700;
-		int[] A = new int[L];
-		for (int i = 0; i < L; i++) {
-			A[i] = 1;
-		}
-		int R = 3;
+	@ParameterizedTest
+	@MethodSource
+	void test_imbalance(int E, int[] X, int[] Y, String colors) {
+		assertEquals(E, testObject.solution(X, Y, colors));
+	}
 
-		int E = L;
-		assertTimeoutPreemptively(getTimeoutDuration(),
-				() -> assertEquals(E, testObject.solution(A, L, R)));
+	static Stream<Arguments> test_imbalance() {
+		return Stream.of( //
+				Arguments.of(0, new int[] {4, 0, 2, -2}, new int[] {4, 1, 2, -3}, "RRRR"), //
+				Arguments.of(0, new int[] {4, 0, 2, -2}, new int[] {4, 1, 2, -3}, "GGGG") //
+		);
+	}
+
+	@ParameterizedTest
+	@MethodSource
+	void test_bug(int E, int[] X, int[] Y, String colors) {
+		assertEquals(E, testObject.solution(X, Y, colors));
+	}
+
+	static Stream<Arguments> test_bug() {
+		return Stream.of( //
+				Arguments.of(6, new int[] {1, 1, 2, 3, 4, 6, 1, 2, 2, 3, 3, 4, 5},
+						new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, "GGGGGGRRRRRRR"));
 	}
 }
