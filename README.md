@@ -22,3 +22,18 @@
 | File | Complexity    | Result | Report                                                                            |
 | ---- | ------------- | ------ | --------------------------------------------------------------------------------- |
 | `A`  | `O(N*log(N))` | `Good` | [M8YFXK](https://app.codility.com/cert/view/certM8YFXK-H8NSVP6PM32BDZEZ/details/) |
+
+### Java Implementation of Solutions from Codility
+
+| File | Description     | Complexity    | Result | Report                                                              |
+| ---- | --------------- | ------------- | ------ | ------------------------------------------------------------------- |
+| `B`  | `solution-2.py` | `O(N*log(N))` | `Good` | [JYA74J](https://app.codility.com/demo/results/trainingJYA74J-JZ8/) |
+
+### Solutions from Codility
+
+| File            | Complexity      |
+| --------------- | --------------- |
+| `solution-1.py` | `O(N**2)`       |
+| `solution-2.py` | `O(N * log(N))` |
+
+- <https://www.youtube.com/watch?v=NrdEqe9PZmc&t=499s>
